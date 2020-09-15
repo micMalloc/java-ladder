@@ -18,10 +18,6 @@ public class Participant {
         return new Participant(position, Name.of(input));
     }
 
-    public int position() {
-        return position;
-    }
-
     @Override
     public String toString() {
         return name.toString();
@@ -39,5 +35,9 @@ public class Participant {
             return other.name.equals(this.name);
         }
         return false;
+    }
+
+    public int move(Ladder ladder) {
+        return ladder.move(position);
     }
 }

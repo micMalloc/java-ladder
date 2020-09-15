@@ -2,6 +2,7 @@ package ladder.refactoring.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -46,6 +47,11 @@ public class Participants {
 
     public List<Participant> getParticipants() {
         return participants;
+    }
+
+    public Map<Participant, Integer> moveAll(Ladder ladder) {
+        return participants.stream()
+                .collect(Collectors.toMap(participant -> participant, participant -> participant.move(ladder)));
     }
 
     @Override

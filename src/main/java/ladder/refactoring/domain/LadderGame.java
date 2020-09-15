@@ -31,9 +31,7 @@ public class LadderGame {
     }
 
     public LadderResult play() {
-        Map<Participant, Integer> result = participants.getParticipants()
-                .stream()
-                .collect(Collectors.toMap(participant -> participant, participant -> ladder.move(participant.position())));
+        Map<Participant, Integer> result = participants.moveAll(ladder);
         return LadderResult.of(result);
     }
 }
